@@ -57,12 +57,8 @@ const shuffle = (array: Prof[]) => {
 
 function App() {
   console.log('app')
-  const [mode, setMode] = useState<PaletteMode>(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-  const [profs, setProfs] = useState<Prof[]>(profiles);
-
-  useEffect(() => {
-    setProfs(shuffle(profs));
-  }, []);
+  const [mode, setMode] = useState<PaletteMode>('dark');
+  const [profs] = useState<Prof[]>(shuffle(profiles));
 
   const theme = createTheme({
     palette: {
