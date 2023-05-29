@@ -78,7 +78,7 @@ function App() {
           Visit us at <a href="https://discord.gg/SxHX5uh6x9">https://discord.gg/SxHX5uh6x9</a>
         </div>
         <div style={{
-          margin: 10,
+          margin: 30,
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center'
@@ -91,7 +91,9 @@ function App() {
             })
           }
         </div>
-        <div>
+        <div style={{
+          marginTop: 40,
+        }}>
           Visit us at <a href="https://discord.gg/SxHX5uh6x9">https://discord.gg/SxHX5uh6x9</a>
         </div>
       </div>
