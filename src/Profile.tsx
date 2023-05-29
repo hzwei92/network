@@ -1,4 +1,4 @@
-import { Card } from "@mui/material";
+import { Card, PaletteMode } from "@mui/material";
 
 export type Prof = {
   title: string;
@@ -7,6 +7,8 @@ export type Prof = {
   discordLink?: string;
   twitter?: string;
   twitterLink?: string;
+  instagram?: string;
+  instagramLink?: string;
   steam?: string;
   steamLink?: string;
   imgSrcLink?: string;
@@ -14,22 +16,27 @@ export type Prof = {
 
 interface ProfileProps {
   prof: Prof;
+  mode: PaletteMode;
 }
 
 const ProfileComponent = (props: ProfileProps) => {
   return (
-    <Card elevation={15} sx={{
+    <Card variant={props.mode === 'dark' ? 'outlined' : 'elevation'} elevation={props.mode === 'dark' ? 0 : 10} sx={{
       borderRadius: 3,
       margin: 2,
       maxWidth: 420,
       padding: 5,
+      textAlign: 'center',
     }}>
       <div style={{
         fontWeight: 'bold',
+        margin: 10,  
       }}>
         {props.prof.title}
       </div>
-      <div>
+      <div style={{
+        marginBottom: 10,
+      }}>
         {props.prof.bio}
       </div>
       <div>
@@ -59,6 +66,21 @@ const ProfileComponent = (props: ProfileProps) => {
         )
       }
       {
+        props.prof.instagram && (
+          <div>
+            <div style={{
+              fontWeight: 'bold',
+              paddingTop: 2,
+            }}>
+              Instagram
+            </div>
+            <a href={props.prof.instagramLink}>
+              {props.prof.instagram}
+            </a> 
+          </div>
+        )
+      }
+      {
         props.prof.steam && (
           <div>
             <div style={{
@@ -67,7 +89,7 @@ const ProfileComponent = (props: ProfileProps) => {
             }}>
               Steam
             </div>
-            {props.prof.steam}
+            <a href="https://steamcommunity.com/id/bigbankfrank22/">{props.prof.steam}</a>
           </div>
         )
       }

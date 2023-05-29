@@ -1,11 +1,13 @@
 import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
-import Container from '@mui/material/Container';
 import React from 'react';
 
-const ResponsiveAppBar = () => {
+interface ResponsiveAppBarProps {
+  mode: 'dark' | 'light';
+};
+
+const ResponsiveAppBar = (props: ResponsiveAppBarProps) => {
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault();
     window.location.href = 'https://discord.gg/SxHX5uh6x9'
@@ -13,6 +15,7 @@ const ResponsiveAppBar = () => {
   return (
     <AppBar sx={{
       display: 'static',
+      color: props.mode === 'dark' ? 'white' : null,
     }}>
       <Toolbar disableGutters sx={{
         display: 'flex',
