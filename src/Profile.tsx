@@ -43,17 +43,21 @@ const ProfileComponent = (props: ProfileProps) => {
           {props.prof.discord} 
         </a>
       </div>
-      <div>
-        <div style={{
-          fontWeight: 'bold',
-          paddingTop: 2,
-        }}>
-          Twitter
-        </div>
-        <a href={props.prof.twitterLink}>
-          {props.prof.twitter}
-        </a> 
-      </div>
+      {
+        props.prof.twitter && (
+          <div>
+            <div style={{
+              fontWeight: 'bold',
+              paddingTop: 2,
+            }}>
+              Twitter
+            </div>
+            <a href={props.prof.twitterLink}>
+              {props.prof.twitter}
+            </a> 
+          </div>
+        )
+      }
       {
         props.prof.steam && (
           <div>

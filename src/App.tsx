@@ -30,7 +30,7 @@ function App() {
     title: "Big Bang Frank",
     bio: `I'm a passionate game developer immersed in the world of Roblox, crafting exciting experiences for players to enjoy. Additionally, I'm an avid collector and trader of CS:GO skins, always open to new opportunities in buying and selling within the CS:GO community.`,
     discord: 'Big Bank Frank#3991',
-    twitter: 'bigbankfrank_',
+    twitter: '@bigbankfrank_',
     twitterLink: 'https://twitter.com/bigbankfrank_',
     steam: 'BigBangFrank // 253380452'
   },{
