@@ -1,11 +1,9 @@
 import { Brightness6Outlined, Twitter } from '@mui/icons-material';
 import { createTheme, Fab, PaletteMode, Paper, ThemeProvider } from '@mui/material';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import AppBar from './AppBar';
 import Profile, { Prof } from './Profile';
-
-
 
 const profiles: Prof[] = [{
   title: 'JAMN Tutoring',
@@ -18,8 +16,8 @@ const profiles: Prof[] = [{
   bio: 'I only simp for anime bitches',
   discord: 'q u e e n#0001',
 }, {
-  title: "Big Bang Frank",
-  bio: `I'm a passionate game developer immersed in the world of Roblox, crafting exciting experiences for players to enjoy. Additionally, I'm an avid collector and trader of CS:GO skins, always open to new opportunities in buying and selling within the CS:GO community.`,
+  title: "Big Bank Frank",
+  bio: 'I make roblox games & trade csgo skins',
   discord: 'Big Bank Frank#3991',
   twitter: '@bigbankfrank_',
   twitterLink: 'https://twitter.com/bigbankfrank_',
@@ -58,7 +56,13 @@ const shuffle = (array: Prof[]) => {
 }
 
 function App() {
+  console.log('app')
   const [mode, setMode] = useState<PaletteMode>('dark');
+  const [profs, setProfs] = useState<Prof[]>(profiles);
+
+  useEffect(() => {
+    setProfs(shuffle(profs));
+  }, []);
 
   const theme = createTheme({
     palette: {
@@ -97,7 +101,7 @@ function App() {
           alignItems: 'center'
         }}>
           {
-            shuffle(profiles).map((p) => {
+            profs.map((p) => {
               return (
                 <Profile prof={p} mode={mode} />
               )
